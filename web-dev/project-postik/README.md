@@ -49,3 +49,13 @@
 - **socket.io** — серверная часть чата  
 - **EJS** — шаблонизация  
 - И другие пакеты из `package.json`
+
+## Скриншоты
+
+<img src="https://github.com/user-attachments/assets/c2f72965-d262-47af-932c-b6fa1c3e8265" alt="drawing" width="500"/>
+
+<img src="https://github.com/user-attachments/assets/8dfd9563-401c-45cb-a34f-12c475c1347d" alt="drawing" width="500"/>
+
+<img src="https://github.com/user-attachments/assets/1f75ee42-fc88-4384-9288-c4757b296a74" alt="drawing" width="500"/>
+
+
