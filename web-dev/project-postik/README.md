@@ -50,7 +50,7 @@
 - **EJS** — шаблонизация  
 - И другие пакеты из `package.json`
 
-## Скриншоты
+## 🎥 Скриншоты
 
 <img src="https://github.com/user-attachments/assets/c2f72965-d262-47af-932c-b6fa1c3e8265" alt="drawing" width="500"/>
 
