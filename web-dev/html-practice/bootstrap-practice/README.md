@@ -1,4 +1,4 @@
-## shopkz-copy
+## bootstrap-practice
 
 Последние изменения: 20 ‎ноября ‎2021г.
 
