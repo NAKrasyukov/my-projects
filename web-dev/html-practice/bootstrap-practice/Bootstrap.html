@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bootstrap</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #A569BD;">
+  <div class="container-xxl">
+    <a class="navbar-brand" href="#">Wide Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">О нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal5">Помошь</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            События
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Акции</a></li>
+            <li><a class="dropdown-item" href="#">Распродажа</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Бонусная система</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container-xxl">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Магазин</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Каталог
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li ><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Смартфоны и гаджеты</a></li>
+
+            <li><a class="dropdown-item" href="#">Комплектующие</a></li>
+            <li><a class="dropdown-item" href="#">Ноутбуки и компьютеры</a></li>
+            <li><a class="dropdown-item" href="#">ТВ, аудио, видео</a></li>
+            <li><a class="dropdown-item" href="#">Бытовая Техника</a></li>
+            <li><a class="dropdown-item" href="#">Развлечения и отдых</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modal4">Доставка</a>
+        </li>
+        
+      </ul>
+    </div>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Найти..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit" style="background-color: #E8DAEF;">Поиск</button>
+      </form>
+  </div>
+</nav>
+<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img3.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+
+  <h3>Рекомендованные товары:</h5><hr>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="phone.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Redmi 8A</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Oppo Reno5</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">IPhone 11</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+             <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Galaxy 22I</h5>
+              <p class="card-text">В Galaxy Fold установлены два AMOLED-экрана. Первый, 4,6-дюймовый, расположен в центре передней панели и предназначен для использова...</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="m1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="m2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="m3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="m4.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="carousel-item">
+      <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="ozu.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="bp.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="mp.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="proc.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<br>
+<h3>
+  Новости:
+</h3>
+<hr>
+
+<br>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card" >
+        <img src="Nw1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">IPhone 14</h5>
+          <p class="card-text">Стало известно, какими будут iPhone 14 нового поколения, и чем же смогут удивить производители искушенных пользователей. Новая улучшенная камера, большие экраны, платформе Apple A16 Bionic идут в самом начале списка.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card" >
+        <img src="n1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Новые подробности о Radeon RX 7900 XT</h5>
+          <p class="card-text">В три раза мощнее предшественника Radeon RX 6900 XT и имеет энергопотребление более 400 Вт – раскрыты новые подробности о флагманской видеокарты AMD RX 7900 XT.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card" >
+        <img src="n2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Acer представила ноутбук Swift X</h5>
+          <p class="card-text">Мощный и тонкий 14-дюймовый ноутбук Swift X для дома и офиса анонсировала компания Acer. Устройство оснащено чипом AMD Ryzen 5000 и дискретной видеокартой NVIDIA GeForce RTX 3050, а также имеет длительный.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card" >
+        <img src="n3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Анонс видеокарты Asus GeForce RTX 3070 Ti Turbo</h5>
+          <p class="card-text">Компания Asus представила видеокарту GeForce RTX 3070 Ti Turbo оснащенную «турбинным» охлаждением. Подробнее о главных достоинствах и характеристиках нового графического адаптера.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+<h3>
+  Наши магазины:
+</h3>
+<hr>
+<div style="position:relative;overflow:hidden;"><a href="https://yandex.kz/maps/162/almaty/search/%D0%91%D0%B5%D0%BB%D1%8B%D0%B9%20%D0%92%D0%B5%D1%82%D0%B5%D1%80/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Белый Ветер в Алматы</a><a href="https://yandex.kz/maps/162/almaty/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Алматы</a><iframe src="https://yandex.kz/map-widget/v1/-/CCUuqIwDKA" width="1300" height="600" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+</div>
+
+<!--смартфоны -->
+  <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Каталог: Смартфоны и гаджеты.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-5">
+            <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="phone.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Redmi 8A</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Oppo Reno5</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">IPhone 11</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Galaxy 22I</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+             <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="phone.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Redmi 8A</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Oppo Reno5</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">IPhone 11</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Galaxy 22I</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+             <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="  row"> 
+        <div class="col-sm-3">
+          <div class="card">
+            <img src="phone.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Redmi 8A</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Oppo Reno5</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">IPhone 11</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <img src="t3.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Galaxy 22I</h5>
+
+            </div>
+            <ul class="list-group list-group-flush">
+             <li class="list-group-item"><button type="button" class="btn btn-primary">Купить  </button></li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">В корзину</a>
+            </div>
+          </div>
+        </div>
+      </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Бонусная система</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-5">
+        
+      <p class="zagolovok"> Основные определения бонусной системы</p>
+      <ul id="sposob">
+        <li> <b>Бонусный период</b> – период длительностью шесть месяцев*, в который включены заказы, участвующие в расчете бонусного процента. </li>
+        <li> <b>Бонусный процент</b> – процент скидки, полученный при совершении покупок в течение бонусного периода. </li>
+      </ul>
+      <p class="zagolovok"> Описание бонусной системы</p>
+      <ul id="sposob">
+        <li> После оплаты заказа клиенту начисляется дополнительный бонусный процент, который учитывается при следующих покупках клиента. Бонусный процент рассчитывается исходя из стоимости товаров, оплаченных в течение бонусного периода по таблице: </li>
+      </ul>
+      <table id="tabl2" cellpadding="10">
+        <tbody>
+        <tr>
+          <td>
+            <b>Сумма товаров от, тг</b><br>
+          </td>
+          <td>
+            <b>Сумма товаров до, тг</b><br>
+          </td>
+          <td>
+            <b>Бонус</b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 <br>
+          </td>
+          <td>
+            1 000
+          </td>
+          <td>
+            0.30%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 001
+          </td>
+          <td>
+            2 500
+          </td>
+          <td>
+            0.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2 501
+          </td>
+          <td>
+            5 000
+          </td>
+          <td>
+            0.50%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            5 001
+          </td>
+          <td>
+            7 500
+          </td>
+          <td>
+            0.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            7 501
+          </td>
+          <td>
+            10 000
+          </td>
+          <td>
+            0.70%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            10 001
+          </td>
+          <td>
+            15 000
+          </td>
+          <td>
+            0.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            15 001
+          </td>
+          <td>
+            20 000
+          </td>
+          <td>
+            0.90%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            20 001
+          </td>
+          <td>
+            25 000
+          </td>
+          <td>
+            1.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            25 001
+          </td>
+          <td>
+            30 000
+          </td>
+          <td>
+            1.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            30 001
+          </td>
+          <td>
+            40 000
+          </td>
+          <td>
+            1.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            40 001
+          </td>
+          <td>
+            50 000
+          </td>
+          <td>
+            1.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            50 001
+          </td>
+          <td>
+            60 000
+          </td>
+          <td>
+            1.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            60 001
+          </td>
+          <td>
+            70 000
+          </td>
+          <td>
+            2.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            70 001
+          </td>
+          <td>
+            90 000
+          </td>
+          <td>
+            2.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            90 001
+          </td>
+          <td>
+            120 000
+          </td>
+          <td>
+            2.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            120 001
+          </td>
+          <td>
+            150 000
+          </td>
+          <td>
+            2.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            150 001
+          </td>
+          <td>
+            180 000
+          </td>
+          <td>
+            2.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            180 001
+          </td>
+          <td>
+            210 000
+          </td>
+          <td>
+            3.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            210 001
+          </td>
+          <td>
+            250 000
+          </td>
+          <td>
+            3.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            250 001
+          </td>
+          <td>
+            290 000
+          </td>
+          <td>
+            3.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            290 001
+          </td>
+          <td>
+            330 000
+          </td>
+          <td>
+            3.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            330 001
+          </td>
+          <td>
+            370 000
+          </td>
+          <td>
+            3.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            370 001
+          </td>
+          <td>
+            410 000
+          </td>
+          <td>
+            4.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            410 001
+          </td>
+          <td>
+            460 000
+          </td>
+          <td>
+            4.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            460 001
+          </td>
+          <td>
+            510 000
+          </td>
+          <td>
+            4.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            510 001
+          </td>
+          <td>
+            600 000
+          </td>
+          <td>
+            4.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            600 001
+          </td>
+          <td>
+            690 000
+          </td>
+          <td>
+            4.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            690 001
+          </td>
+          <td>
+            780 000
+          </td>
+          <td>
+            5.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            780 001
+          </td>
+          <td>
+            900 000
+          </td>
+          <td>
+            5.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            900 001
+          </td>
+          <td>
+            1 100 000
+          </td>
+          <td>
+            5.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 100 001
+          </td>
+          <td>
+            1 300 000
+          </td>
+          <td>
+            5.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 300 001
+          </td>
+          <td>
+            1 500 000
+          </td>
+          <td>
+            5.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 500 001
+          </td>
+          <td>
+            1 800 000
+          </td>
+          <td>
+            6.00%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1 800 001
+          </td>
+          <td>
+            2 200 000
+          </td>
+          <td>
+            6.20%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2 200 001
+          </td>
+          <td>
+            2 600 000
+          </td>
+          <td>
+            6.40%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2 600 001
+          </td>
+          <td>
+            3 100 000
+          </td>
+          <td>
+            6.60%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3 100 001
+          </td>
+          <td>
+            3 600 000
+          </td>
+          <td>
+            6.80%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3 600 001
+          </td>
+          <td>
+            и более
+          </td>
+          <td>
+            7.00%
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <br>  
+      <ul id="bonusnj">
+        <li> Бонусная скидка рассчитывается автоматически при оформлении заказа на товар имеющий значок. <img src="bonus+.png";> После окончания срока резерва заказа или срока действия счета, делается пересчет стоимости заказа по актуальным ценам и вашему бонусному проценту действующему на дату пересчета. </li>
+        <li> <b>Совершив покупку даже по одному заказу, Вы получаете свою персональную скидку, действующую в течение последующих ШЕСТИ месяцев*, которую можно увеличивать, постоянно приобретая товар через интернет-магазин.</b> </li>
+      </ul>
+      <p class="zagolovok"> Примечание</p>
+      <ul id="sposob">
+        <li><img src="pt.gif";> Бонусная скидка на товары в которых отсутствует значок <img src="bonus+.png";> НЕ начисляется, но стоимость товара попадает в расчет бонусного процента при дальнейших покупках. </li>
+        <li> Например, при покупке ноутбука по спецпредложению или распродаже и сумки к ноутбуку, бонусная скидка (если таковая есть) будет применена только к стоимости сумки, но при следующем заказе бонусный процент будет исчисляться исходя из стоимости и сумки и ноутбука. </li>
+        <li><img src="pt.gif";> Стоимость доставки не включается в расчеты бонусного процента, и на ее стоимость не начисляется бонусная скидка. </li>
+        <li><img src="pt.gif";> Бонусная система распространяется только на заказы оформляемые в интернет-магазине на сайте shop.kz через Корзину и в 1 клик с авторизацией на сайте. Оформление заказа в 1 клик без авторизации, а также на сторонних ресурсах, в том числе в Kaspi Магазин не влияет на бонусную систему. Накопленная клиентом персональная бонусная скидка не распространяется на покупки в точках розничной торговли и на заказы в 1 клик, в случае, если клиент при оформлении заказа не авторизован на сайте. </li>
+        <li><img src="pt.gif";> При покупке в рассрочку или кредит на сайте shop.kz бонусная система не действует, однако доставленный заказ принимает участие в расчете бонусного процента </li>
+        <li><img src="pt.gif";> В бонусной системе участвуют юридические и физические лица только с уровнем цен – «Интернет». </li>
+        <li><img src="pt.gif";> Заказ исключается из бонусного периода по истечение 180 дней с момента оформления заказа на сайте shop.kz </li>
+        <li> * 1 месяц = 30 дней. </li>
+      </ul>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Xiaomi Redmi A5</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-5">
+            <div class="  row"> 
+                <div class="text-center">
+                  <img src="phone.jpg" style="width:  40%;" >
+                  <h1> Xiaomi Redmi A5</h1> 
+                  <h3>54 900 ₸</h3>
+                  <li class="list-group-item"><button type="button" class="btn btn-primary">Купить</button><a href="#" class="card-link">В корзину</a></li>
+
+                </div>
+                <p> Китайская компания Xiaomi объявила о старте продаж своего нового недорогого смартфона Redmi 9A. Новинка выделяется наличием большого 6,53-дюймового HD+ дисплея и аккумулятора повышенной емкости на 5000 мАч. Кроме того, тут нашлось место восьмиядерному игровому чипсету MediaTek Helio G25 и 13-мегапиксельной основной камерой с искусственным интеллектом.  
+                </p>
+                <h3>Технические характеристики Redmi 9A: </h3>
+                <br>  
+                <hr>  
+                  
+<pre>
+Поддержка стандартов связи: 4G/LTE; 3G/WCDMA; GSM; два слота под SIM карты
+<hr>  
+Размеры: 164,9х77,07х9 мм
+<hr>
+Вес: 196 г
+<hr>
+Платформа: MIUI 12 на базе Android 10
+<hr>
+Процессор: 2 ГГц, восьмиядерный, MediaTek Helio G25
+<hr>
+Дисплей: 6,53-дюймовый, разрешением 720×1600 пикселей
+<hr>
+Основная камера: 13 МП, фазовый автофокус, светодиодная подсветка; поддержка Full HD
+<hr>
+Фронтальная камера: 5 МП, f/2.2
+<hr>
+Память: 2 Гб ОЗУ (LPDDR4X), 32 Гб встроенной (eMMC 5.1), слот под microSD карты памяти
+<hr>
+Коммуникации: Wi-Fi 802.11 b/g/n, Bluetooth 5.0, micro USB, GPS/AGPS, аудио разъём 3,5 мм
+<hr>
+Аккумулятор: 5000 мАч
+<hr>
+Прочее: Акселерометр, Датчики приближения и освещения
+                </pre>
+            </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Доставка</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-5">
+        <ul id="dostavka">
+        <li><a href="" >Способы доставки</font></a></li>
+        <li><a href="" >Условия доставки службами Интернет-магазина</font></a></li>
+        <li><a href="" >Доставка службами Интернет-магазина</font></a></li>
+        <li><a href="" >Условия доставки сторонними службами</font></a></li>
+        <li><a href="" >Сроки доставки</font></a></li>
+        <li><a href="" >Куда доставляем заказанные товары</font></a></li>
+        </ul>
+        
+      <p class="zagolovok"> Способы доставки</p>
+      <img id="imgdost"src="deliv.jpg"; style="width:80%">
+      <ul id="sposob">
+        <li><img src="pt.gif";> <b>Самовывоз</b> – получение товара в пункте самовывоза. Срок резерва - 5 дней поcле смены статуса на «Доступен»</a></li>
+        <li><img src="pt.gif";> <b>Курьерская доставка в города спутники</b> – доставка со склада интернет-магазина по адресу, указанному при оформлении заказа. Доставка осуществляется в удобные для клиента время и день (ежедневно с 11:00 до 18:30) в том числе и в день оформления заказа, при наличии свободных курьеров и товара на складе интернет-магазина. Более подробные условия доставки в разделе Доставка службами Интернет-магазина и Доставка сторонними службами. </a></li>
+        <li><img src="pt.gif";> <b>Курьерская доставка EMS (по Казахстану)</b>доставка отправлений по указанному в заказе адресу, по принципу «от двери до двери» (Экспресс - от 2 до 5 дней, Стандарт - от 3 до 10 дней). <span> Доступна оплата при получении (наложенный платеж).</span>  </a></li>
+        <li><img src="pt.gif";> <b>Доставка через АО «Казпочта» (по Казахстану)</b> доставка отправлений в почтовое отделение указанного в заказе населенного пункта (от 2 до 10 дней). <span> Доступна оплата при получении (наложенный платеж).</span> </a></li>
+        <li><img src="pt.gif";> <b>Курьерская доставка DHL (по Казахстану) </b> – максимально быстрая доставка отправлений по указанному в заказе адресу, по принципу «от двери до двери» по областным центрам  (от 2 до 4 дней).  </a></li>
+        <li><img src="pt.gif";> <b>Курьерская доставка EXLINE (по Казахстану)</b> – доставка отправлений по указанному в заказе адресу, по принципу «от двери до двери» (по областным центрам) или в отделение компании (в городах ниже областных центров), Экспресс - от 3 до 6 дней, Стандарт - от 4 до 13 дней. </a></li>
+        <li><img src="pt.gif";> <b>Курьерская доставка CDEK (по Казахстану)</b> - доставка отправлений по указанному в заказе адресу, по принципу «от двери до двери» по областным центрам и некоторым крупным городам (от 2 до 8 дней)</a></li>
+      </ul>
+      <p class="zagolovok"> Условия доставки службами Интернет-магазина</p>
+      <table class="tabl" cellspacing="0" cellpadding="5" border="1">
+      
+  <tbody>
+  <tr>
+    <td align="center">
+ <b>Способ доставки</b>
+    </td>
+    <td align="center">
+ <b>Регион доставки</b>
+    </td>
+    <td align="center">
+ <b>Стоимость</b>
+    </td>
+    <td align="center">
+ <b>Ограничение по сумме товара</b>**
+    </td>
+    <td align="center">
+ <b>Время доставки</b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Самовывоз
+    </td>
+    <td align="center">
+ <span style="color: #000000;"><b> </b></span>
+      <p style="text-align: left;">
+ <span style="color: #ff0000;"><span style="color: #000000;">Алматы, Нур-Султан, Караганда, Павлодар, Актобе, Жезказган, Костанай, Темиртау, Рудный</span></span>
+      </p>
+      <p style="text-align: left;">
+      </p>
+    </td>
+    <td align="center">
+       0 тг
+    </td>
+    <td align="center">
+       без ограничений
+    </td>
+    <td align="center">
+       -
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Стандартная курьерская доставка
+    </td>
+    <td rowspan="3">
+       Алматы, Нур-Султан, Караганда, Актобе, Темиртау, Жезказган, Павлодар, Костанай, Рудный<br>
+    </td>
+    <td rowspan="1" align="center">
+       500 тг <br>
+    </td>
+    <td align="center">
+       до 20 000 тг
+    </td>
+    <td rowspan="3" align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+       Бесплатная курьерская доставка
+    </td>
+    <td rowspan="2" align="center">
+       0 тг
+    </td>
+    <td rowspan="2" align="center">
+       от 20 000 тг
+    </td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td rowspan="4">
+       Курьерская доставка в города спутники г.Караганда <br>
+ <br>
+    </td>
+    <td>
+       Актас<br>
+    </td>
+    <td align="center">
+       500 тг
+    </td>
+    <td rowspan="4" valign="center" align="center">
+       без ограничений<br>
+    </td>
+    <td rowspan="4" valign="center" align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Сарань
+    </td>
+    <td align="center">
+       1000 тг
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Абай
+    </td>
+    <td align="center">
+       1500 тг
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+       Топар, Шахтинск, Шахан
+    </td>
+    <td align="center">
+       2000 тг
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+       Курьерская доставка в города спутники г.Алматы<br>
+ <br>
+    </td>
+    <td>
+       Боралдай, Отеген Батыр
+    </td>
+    <td align="center">
+       1000 тг
+    </td>
+    <td align="center">
+       без ограничений<br>
+    </td>
+    <td align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Талгар, Каскелен
+    </td>
+    <td align="center">
+       2000 тг
+    </td>
+    <td align="center">
+       без ограничений<br>
+    </td>
+    <td align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="1">
+       Курьерская доставка в города спутники г.Нур-Султан <br>
+ <b><span style="color: #ff0000;">&nbsp;</span></b><br>
+    </td>
+    <td>
+       Косшы, Караоткель, Военгородок, п.Жибек Жолы, мкр.Уркер
+    </td>
+    <td align="center">
+       2500 тг
+    </td>
+    <td rowspan="1" align="center">
+       без ограничений<br>
+    </td>
+    <td rowspan="1" align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+       Курьерская доставка в города спутники г.Павлодар<br>
+ <br>
+    </td>
+    <td>
+       Аксу
+    </td>
+    <td align="center">
+       500 тг
+    </td>
+    <td align="center">
+       без ограничений<br>
+    </td>
+    <td align="center">
+       воскресенье
+    </td>
+  </tr>
+  <tr>
+    <td>
+       Экибастуз
+    </td>
+    <td align="center">
+       1000 тг
+    </td>
+    <td align="center">
+       без ограничений<br>
+    </td>
+    <td align="center">
+       1-3 дня
+    </td>
+  </tr>
+  <tr>
+  </tr>
+  </tbody>
+  </table>
+      <ul id="yslovia">
+        <li>*Доставка осуществляется курьерами «Белого Ветра» или партнерских компаний</li>
+        <li>*Убесплатная доставка не распространяется на заказы клиентов с уровнем цен отличных от розничного</li>
+        <li>*Возможна доставка в день оформления заказа, при наличии свободных курьеров</li>
+        <li>*Указанные сроки действуют при наличии товара в регионе в пределах которого осуществляется доставка</li>
+        <li>*Перевозка между торговыми точками городов носит плановый характер и не оплачивается</a></li>
+        <li>**Ккурьерская доставка с оплатой наличными при получении возможна только для заказов до 300 000 тенге </li>
+        </ul>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Помощь. Ответы на вопросы.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-5">
+            <h1><font face="Arial" color="#333">Контакты</font></h1>
+        <pre style="font-size:  15px;"><b>Телефоны службы поддержки:</b>
+(7212) 910-111
+(7212) 911-555
+
+<b>Почтовый адрес Интернет-магазина:</b>
+100008, г.Караганда
+ул.Ерубаева 49/2 Бизнес-центр "Белый Ветер"
+Офис 110, Отдел электронной торговли</pre>
+        <br>
+        <br>  
+        <h2><font face="Arial" color="#333">Форма обратной связи</font></h2>
+        <p> Если у вас возникли вопросы по работе Интернет-магазина или есть предложения, воспользуйтесь формой ниже для своего высказывания. Из заданных вами вопросов будет формироваться список ответов на них в разделе "Вопросы и ответы".</p>
+
+        <div class="  container-fluid"> 
+          <p > Ваше сообщение:</p>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> 
+        <hr>
+          <p class="mb-5"> Ваше имя *</p>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        <hr> 
+          <p class="mb-5"> Компания</p>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        <hr>
+          <p class="mb-5"> Электронная почта *</p>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        <hr>
+          <p class="mb-5"><b> Защита от автоматического заполнения</b></p>
+
+          <img src="kap.png">
+          <p class="mb-5"> Введите символы с картинки *</p>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        <hr>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Хочу получать информацию о скидках и акциях
+          </label>
+        </div>    
+          
+        <hr>
+          <button type="button" class="btn btn-primary"> Отправить</button>
+
+        </div>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Wide Shop
+          </h6>
+          <p>
+            Интернет-площадка "Wide Shop". Бытовая и компьютерная техника, комплектующие, ноутбуки, смартфоны и аксессуары в гг. Алматы, Нур-Султан (Астана) и других городах Казахстана.
+          </p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Магазин
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Каталог</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Бонусная система</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Новости</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Наши магазины</a>
+          </p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Полезные ссылки
+          </h6>
+          <p>
+            <a href="#!" class="text-reset"data-bs-toggle="modal" data-bs-target="#modal4">Доставка</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Настройки</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Заказы</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset"data-bs-toggle="modal" data-bs-target="#modal5">Помошь</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> 100008, г.Караганда
+ул.Ерубаева 49/2 Бизнес-центр "Wide Shop"</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+
+
+</script>
+</html>
