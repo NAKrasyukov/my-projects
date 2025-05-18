@@ -1,0 +1,62 @@
+<div class="post">
+    <div class="post-header">
+        <% for (let i = 0; i < Users.length; i++) {%>
+            <% if (Users[i].username == post.authorName) { %>
+                <a href="/posts/profile/<%=Users[i]._id%>"><img src="/assets/asset1.jpg" alt="<%= post.authorName %>"></a>
+
+                <a href="/posts/profile/<%=Users[i]._id%>"><h2><%= post.authorName %></h2></a>
+            <% } %>
+        <% } %>
+        <p><%= post.createdAt %></p>
+        <% if (logined) { %>
+            <% if (role === 'Moderator' || role === 'Admin') { %>
+                <button class="delete-post" id="<%= post._id %>">Удалить пост</button>
+            <% } %>
+        <% } %>
+    </div>
+    <div class="post-body">
+              <p><%= post.text %></p>
+              <% if (post.attachments && post.attachments.length) { %>
+            <div class="attachments">
+                <% for (let i = 0; i < post.attachments.length; i++) { %>
+                    <% if (post.attachments[i].length !== 0) { %>
+                        <img src="/assets/<%= post.attachments[i] %>" alt="Attachment <%= i + 1 %>">
+                    <% } %>
+                <% } %>
+            </div>
+        <% } %>
+        <div class="scroll-container">
+        <% if (comment && comment.length) { %>
+            <% for (let i = 0; i < comment.length; i++) { %>
+                <% if (comment[i].comPostId == post._id) {%>
+                <div class="commentBlock">
+                    <div class="post-header">
+                            <% for (let j = 0; j < Users.length; j++) {%>
+                                <% if (Users[j].username == comment[i].authorName) { %>
+                                    <a href="/posts/profile/<%=Users[j]._id%>"><img src="/assets/asset1.jpg" alt="<%= comment[i].authorName %>"></a>
+
+                                    <a href="/posts/profile/<%=Users[j]._id%>"><h2><%= comment[i].authorName %></h2></a>
+                                <% } %>
+                            <% } %>
+
+                            <p><%= comment[i].createdAt %></p>
+                        </div>
+                        <div class="post-body">
+                            <p><%= comment[i].text %></p>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        <% } else { %>
+            <p>Комментариев пока нет.</p>
+        <% } %>
+
+
+        </div>
+
+    </div>
+    <div class="post-footer">
+        <button class="like-post" data-post-id="<%= post._id %>">Нравится</button>
+        <button class="commentPost" data-post-id="<%= post._id %>">Комментарий</button>
+    </div>
+</div>

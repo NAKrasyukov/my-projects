@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<style>
+    /* Обновленные стили */
+    /* Добавьте стили по вашему усмотрению */
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Для предотвращения прокрутки */
+    }
+
+    .chat-container {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 500px; /* Уменьшьте ширину по своему усмотрению */
+        height: 300px; /* Уменьшьте высоту по своему усмотрению */
+        background-color: #f2f2f2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-panel {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+
+    .user-list {
+        flex: 1;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border-right: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user-list h2 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .user-list ul {
+        list-style: none;
+        padding: 0;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    .user-list li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .user-list li:last-child {
+        border-bottom: none;
+    }
+
+    .user-list li:hover {
+        background-color: #ddd;
+    }
+
+    .chat-content {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        overflow-y: auto;
+        flex-grow: 1;
+        max-height: 180px;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-messages::-webkit-scrollbar {
+        width: 10px; /* Ширина вертикального элемента прокрутки */
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+        background-color: #bfc5cc; /* Цвет ползунка */
+        border-radius: 5px; /* Скругление углов ползунка */
+    }
+
+    .chat-messages::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+        border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+    }
+
+    .chat-input {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .incoming-message {
+        background-color: #e2e2e2;
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 5px 10px;
+        max-width: 70%; /* Максимальная ширина входящего сообщения */
+        align-self: flex-start; /* Выравнивание в левой части окна чата */
+        word-wrap: break-word;
+        width: fit-content;
+    }
+
+    /* CSS для исходящих сообщений */
+    .outgoing-message {
+        background-color: #e2e2e2;
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 5px 10px;
+        max-width: 70%; /* Максимальная ширина исходящего сообщения */
+        align-self: flex-end; /* Выравнивание в правой части окна чата */
+        word-wrap: break-word;
+        width: fit-content;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-panel">
+        <div class="user-list">
+            <h2>Пользователи</h2>
+            <ul id="user-list">
+                <li>User 1</li>
+                <li>User 2</li>
+                <!-- Добавьте других пользователей по мере необходимости -->
+            </ul>
+        </div>
+        <div class="chat-content">
+            <div class="chat-header">
+                <!-- Здесь отобразите имя выбранного пользователя -->
+            </div>
+            <div class="chat-messages">
+                <div class ="incoming-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+                <div class ="outgoing-message">
+                    <p>fgdfbcvbcgn</p>
+                </div>
+                <!-- Здесь отобразите предыдущие сообщения чата -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Введите сообщение...">
+                <button id="send-button">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    // Модифицированный клиентский JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+        const userList = document.getElementById('user-list');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatHeader = document.querySelector('.chat-header');
+
+        // Функция для обновления чата при выборе пользователя
+        function selectUser(userId) {
+            // Очистите чат и отобразите имя выбранного пользователя
+            chatHeader.textContent = `Чат с пользователем: ${userId}`;
+            chatMessages.innerHTML = `<div class ="incoming-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="outgoing-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="incoming-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="outgoing-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="incoming-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="outgoing-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>
+<div class ="incoming-message">
+                    <p>fasfasf
+                        asf</p>
+                </div>`;
+            // Запросите предыдущие сообщения чата из сервера и отобразите их
+            // Здесь вы можете использовать AJAX-запрос или socket.emit, в зависимости от вашей архитектуры.
+        }
+
+        // Обработчик клика на пользователя в списке
+        userList.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                const selectedUserId = event.target.textContent;
+                selectUser(selectedUserId);
+            }
+        });
+
+        // Обработчик кнопки отправки сообщения
+        document.getElementById('send-button').addEventListener('click', () => {
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value;
+            // Отправьте сообщение на сервер и сохраните его в базе данных
+            // Учтите, что здесь вы должны указать идентификатор выбранного пользователя (selectedUserId).
+            //socket.emit('chatMessage', { userId: selectedUserId, message });
+            messageInput.value = '';
+            chatMessages.innerHTML = chatMessages.innerHTML+`
+            <div class ="outgoing-message">
+                    <p>`+message+`</p>
+                </div>`;
+        });
+
+        // Ваши другие обработчики событий и код здесь
+    });
+</script>
+</body>
+</html>

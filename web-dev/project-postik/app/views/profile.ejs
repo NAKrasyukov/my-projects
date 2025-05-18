@@ -1,0 +1,915 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QWVW5YWKST"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QWVW5YWKST');
+</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Профиль пользователя</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 10px;
+            padding: 0;
+        }
+        body {
+            font-family: sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            text-align: center;
+        }
+        p {
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        /* ссылки */
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #666;
+        }
+
+        /* кнопки */
+        button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form.newpost{
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form textarea{
+            resize: none;
+            display: block;
+            width: 100%;
+            height: 20%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        form.newpost textarea{
+            height: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 50%;
+        }
+
+        /* стиль для заголовка таблицы */
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* стиль для ячеек таблицы */
+        td {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        input[type='text'],
+        input[type='email'],
+        input[type='password'] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #f2f2f2;
+        }
+
+
+        .form_radio_group {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .form_radio_group-item {
+            display: inline-block;
+            float: left;
+            margin: -10px;
+        }
+        .form_radio_group input[type=radio] {
+            display: none;
+        }
+        .form_radio_group label {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0px 15px;
+            line-height: 34px;
+            border: 1px solid #999;
+            border-right: none;
+            user-select: none;
+        }
+
+        .form_radio_group .form_radio_group-item:first-child label {
+            border-radius: 6px 0 0 6px;
+        }
+        .form_radio_group .form_radio_group-item:last-child label {
+            border-radius: 0 6px 6px 0;
+            border-right: 1px solid #999;
+        }
+
+        /* Checked */
+        .form_radio_group input[type=radio]:checked + label {
+            background: #e0e8ff;
+        }
+
+        /* Hover */
+        .form_radio_group label:hover {
+            color: #666;
+        }
+
+        /* Disabled */
+        .form_radio_group input[type=radio]:disabled + label {
+            background: #efefef;
+            color: #666;
+        }
+        /* Стили для всплывающего окна */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 60%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px 20px 20px 20px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .post-header h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .post-header p {
+            margin: 0;
+            font-size: 12px;
+            color: #999;
+            margin-left: auto;
+        }
+        .post-header button {
+            margin: 0;
+            font-size: 12px;
+            color: #999;
+            margin-left: auto;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .post-footer button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .post-footer button:hover {
+            text-decoration: underline;
+        }
+
+        .attachments {
+            margin-top: 10px;
+        }
+
+        .attachments img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            color: #000;
+            max-height: 80px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            position: sticky;
+        }
+
+        .top-bar img {
+            height: 50%;
+            margin-right: 10px;
+        }
+
+        .top-bar h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .top-bar .center {
+            text-align: center;
+            font-size: 24px;
+            flex: 1;
+        }
+
+        .top-bar .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            padding: 0;
+        }
+        .top-bar .dropdown button{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            max-height: 90%;
+        }
+
+        .top-bar .dropdown img {
+            height: 50px;
+            vertical-align: middle;
+            margin: 0;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        .top-bar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            max-width: 94%;
+            margin-top: -10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .top-bar .dropdown-content button {
+            background-color: inherit;
+            border: none;
+            color: black;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .top-bar .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+
+        .top-bar .dropdown:hover .dropdown-content {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        form.drdn {
+            border: none;
+            color: black;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 0;
+            margin: -10px;
+            max-height: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .scroll-container {
+
+            align-items: center;
+            margin-bottom: 10px;
+            min-height: 50px;
+            max-height: 200px; /* Высота контейнера */
+            overflow-y: scroll; /* Включаем вертикальную прокрутку */
+
+        }
+        .commentBlock{
+            height: 150px; /* Высота блока */
+            border-bottom: 1px solid #ccc; /* Граничная линия между блоками */
+            padding: 10px; /* Внутренний отступ блока */
+        }
+        .scroll-container::-webkit-scrollbar {
+            width: 10px; /* Ширина вертикального элемента прокрутки */
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #bfc5cc; /* Цвет ползунка */
+            border-radius: 5px; /* Скругление углов ползунка */
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+            border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+        }
+        /* Обновленные стили для страницы профиля */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .left-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .middle-column {
+            flex: 2;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+        }
+        .right-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column; /* Изменим направление контейнера */
+             /* Выравнивание элементов по центру */
+            margin-bottom: 20px;
+            position: relative; /* Добавлено для позиционирования */
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 10% 1% 1% 1%;
+            border: 4px solid #fff; /* Белая обводка */
+            z-index: 2; /* Отображение над обложкой */
+        }
+        .edit-profile-button {
+            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
+            color: #464545; /* Белый цвет текста */
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Прозрачная обводка */
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            border-radius: 5px; /* Закругленные углы */
+        }
+        .cover-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            position: absolute; /* Позиционирование обложки */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1; /* Задний план относительно аватара и имени */
+            border-radius: 5px;
+        }
+        .profile-details {
+            z-index: 2; /* Отображение над обложкой */
+            text-align: center; /* Центрирование текста */
+            margin: -7% 1% 1% 1%;
+        }
+        .profile-details h1 {
+            margin: 0;
+        }
+        .posts {
+            /* Стили для блока с постами */
+        }
+        .friends {
+            /* Стили для блока с друзьями */
+        }
+        .subscriptions {
+            /* Стили для блока с подписками */
+        }
+        .chat-container {
+                                position: fixed;
+                                bottom: 40px;
+                                right: 0;
+                                width: 500px; /* Уменьшьте ширину по своему усмотрению */
+                                height: 400px; /* Уменьшьте высоту по своему усмотрению */
+                                background-color: #f2f2f2;
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                            .chat-panel {
+                                display: flex;
+                                flex-direction: row;
+                                flex: 1;
+                            }
+
+                            .user-list {
+                                flex: 1;
+                                padding: 10px;
+                                background-color: #f2f2f2;
+                                border-right: 1px solid #ccc;
+                                display: flex;
+                                flex-direction: column;
+                                height: 320px;
+                                overflow-y: auto;
+                            }
+                            .user-list::-webkit-scrollbar {
+                                width: 10px; /* Ширина вертикального элемента прокрутки */
+                            }
+
+                            .user-list::-webkit-scrollbar-thumb {
+                                background-color: #bfc5cc; /* Цвет ползунка */
+                                border-radius: 5px; /* Скругление углов ползунка */
+                            }
+
+                            .user-list::-webkit-scrollbar-track {
+                                background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+                                border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+                            }
+
+                            .user-list h2 {
+                                margin: 0;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid #ccc;
+                            }
+
+                            .user-list ul {
+                                list-style: none;
+                                padding: 0;
+                                flex-grow: 1;
+                                overflow-y: auto;
+                            }
+
+                            .user-list li {
+                                padding: 10px;
+                                cursor: pointer;
+                                border-bottom: 1px solid #ccc;
+                            }
+
+                            .user-list li:last-child {
+                                border-bottom: none;
+                            }
+
+                            .user-list li:hover {
+                                background-color: #ddd;
+                            }
+
+                            .chat-content {
+                                flex: 3;
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                            .chat-header {
+                                background-color: #333;
+                                color: #fff;
+                                padding: 10px;
+                            }
+
+                            .chat-messages {
+                                padding: 10px;
+                                overflow-y: auto;
+                                flex-grow: 1;
+                                max-height: 220px;
+                                display: flex;
+                                flex-direction: column;
+                            }
+                            .chat-messages::-webkit-scrollbar {
+                                width: 10px; /* Ширина вертикального элемента прокрутки */
+                            }
+
+                            .chat-messages::-webkit-scrollbar-thumb {
+                                background-color: #bfc5cc; /* Цвет ползунка */
+                                border-radius: 5px; /* Скругление углов ползунка */
+                            }
+
+                            .chat-messages::-webkit-scrollbar-track {
+                                background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+                                border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+                            }
+
+                            .chat-input {
+                                display: flex;
+                                align-items: center;
+                                padding: 5px;
+                            }
+
+                            input[type="text"] {
+                                flex: 1;
+                                padding: 5px;
+                                border: 1px solid #ccc;
+                                border-radius: 5px;
+                            }
+
+
+                            .incoming-message {
+                                background-color: #e2e2e2;
+                                color: #333;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                margin: 5px 10px;
+                                max-width: 70%; /* Максимальная ширина входящего сообщения */
+                                align-self: flex-start; /* Выравнивание в левой части окна чата */
+                                word-wrap: break-word;
+                                width: fit-content;
+                            }
+
+                            /* CSS для исходящих сообщений */
+                            .outgoing-message {
+                                background-color: #e2e2e2;
+                                color: #333;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                margin: 5px 10px;
+                                max-width: 70%; /* Максимальная ширина исходящего сообщения */
+                                align-self: flex-end; /* Выравнивание в правой части окна чата */
+                                word-wrap: break-word;
+                                width: fit-content;
+                            }
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <div class="logo">
+        <img src="/assets/logo.png" alt="Logo">
+        <h1>Postik</h1>
+    </div>
+    <div class="center">
+        Поделись со всеми!
+    </div>
+    <div class="right">
+        <div class="dropdown">
+            <button>
+                <% if (logined) { %>
+                    <span><%= username%></span>
+                    <img src="/assets/asset1.jpg" alt="Dropdown Icon">
+                <% } else {%>
+                        <span>Войдите в систему</span>
+                <% }%>
+            </button>
+            <div class="dropdown-content">
+                <% if (logined) { %>
+                    <form class="drdn" action="/logout" method="post">
+                        <div>
+                            <input type="submit" value="Выйти">
+                        </div>
+                    </form>
+                <% } else {%>
+                        <form class="drdn" action="/login" method="post">
+                            <div>
+                                <input type="submit" value="Войти">
+                            </div>
+                        </form>
+                <% }%>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-column">
+        <!-- Навигационные кнопки -->
+        <ul>
+            <li><button id="homeButton" style="width: 100%; text-align: left;"><span><i class="fa-solid fa-list"></i></span>Лента</button></li>
+            <li><button id="profileButton" style="width: 100%; text-align: left;" prfilebtnuserid="<%= userid %>"><span><i class="fa-solid fa-user"></i></span>Мой профиль</button></li>
+            <li><button id="settingsButton" style="width: 100%; text-align: left;"><span><i class="fa-solid fa-user"></i></span>Настройки</button></li>
+        </ul>
+    </div>
+    <div class="middle-column">
+        <!-- Блок с фотографией пользователя, именем, кнопкой для редактирования профиля и обложкой -->
+        <div class="profile-info">
+            <img src="\assets\missingbackground.png" alt="Обложка" class="cover-image">
+            <img src="\assets\missingavatar1.png" alt="Фото пользователя" class="profile-image">
+            <div class="profile-details">
+                <h1><%= ProfileUser.username%></h1>
+                <% if (userid == ProfileUser._id){ %>
+                    <button class="edit-profile-button" id="edit-profile-button">Редактировать профиль</button>
+                <% }%>
+                <div class="overlay" id="overlay">
+                        <div class="popup">
+                            <h2>Редактирование профиля</h2>
+                            <form class="newpost" action="/posts/profile/:id" method="POST" enctype="multipart/form-data">
+                                <label for="userAvatar">Фото Профиля:</label><br>
+                                <input type="file" id="userAvatar" name="userAvatar"><br>
+                                <label for="userProfileBackground">Фон Профиля:</label><br>
+                                <input type="file" id="userProfileBackground" name="userProfileBackground"><br>
+                                <button type="submit">Подтвердить</button>
+                                <button type="button" id="cancel">Отмена</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div id="disqus_thread"></div>
+        <div class="posts">
+
+            <% if (posts && posts.length) { %>
+                <% for (let i = 0; i < posts.length; i++) { %>
+                    <% if (posts[i].authorName == ProfileUser.username){ %>
+                        <%- include('post', { post: posts[i], comment: comments}) %>
+                    <% }%>
+                <% } %>
+            <% } else { %>
+                <p>Постов пока нет.</p>
+            <% } %>
+
+        </div>
+
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+            var disqus_config = function () {
+            this.page.url = "http://localhost:3000/posts/";  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ""; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+        */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://postiks.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    <div class="right-column">
+     <% if (logined) { %>
+        <button id="toggle-chat-button" style="position: fixed;bottom: 0;right: 0;display: flex; flex-direction: column; width: 500px;text-align:left;"><span><i class="fa fa-comments" aria-hidden="true"></i></span> Чат с поддержкой</button>
+        <div class="chat-container">
+                    <div class="chat-panel">
+
+                        <div class="chat-content">
+                            <div class="chat-header">
+                                <!-- Здесь отобразите имя выбранного пользователя -->
+                            </div>
+                            <div class="chat-messages">
+                                <div class="incoming-message">
+                                    <p>dasdasdasdas</p>
+                                </div>
+                                <div class="outgoing-message">
+                                    <p>dasdasdasdas</p>
+                                </div>
+                                <!-- Здесь отобразите предыдущие сообщения чата -->
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="message-input" placeholder="Введите сообщение...">
+                                <button id="send-button" user-id="<%= userid%>" style="margin-top: -1px;">Отправить</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+       <% } %>
+        <!-- Блок с кратким списком друзей -->
+        <h2>Друзья</h2>
+        <ul class="friends">
+            <!-- Вставьте здесь список друзей пользователя -->
+        </ul>
+        <!-- Блок с подписками пользователя -->
+        <h2>Подписки</h2>
+        <ul class="subscriptions">
+            <!-- Вставьте здесь список подписок пользователя -->
+        </ul>
+    </div>
+
+    <script>
+    const editProfileBtn = document.getElementById('edit-profile-button');
+    const cnlPostBtn = document.getElementById('cancel');
+    const overlay = document.getElementById('overlay');
+    const messagesendBtn = document.getElementById('send-button');
+    const useridmessbtn = messagesendBtn.getAttribute('user-id');
+
+        // JavaScript для перенаправления при нажатии на кнопку
+        document.getElementById("homeButton").addEventListener("click", function() {
+            // Здесь вы можете указать адрес целевой страницы
+            window.location.href = "/posts";
+        });
+        document.getElementById("profileButton").addEventListener("click", function() {
+            // Здесь вы можете указать адрес целевой страницы
+            const userbtnid = profileButton.getAttribute('prfilebtnuserid');
+            window.location.href = `/posts/profile/`+userbtnid;
+        });
+        editProfileBtn.addEventListener('click', () => {
+            overlay.style.display = 'block';
+        });
+        cnlPostBtn.addEventListener('click', function () {
+            overlay.style.display = 'none';
+        });
+        // Получаем ссылку на чат-панель и кнопку для переключения
+                    const chatPanel = document.querySelector(".chat-container");
+                    const toggleChatButton = document.getElementById("toggle-chat-button");
+
+                    // Функция, чтобы скрыть или показать чат-панель
+                    function toggleChat() {
+                        if (chatPanel.style.display === "none" || chatPanel.style.display === "") {
+                            chatPanel.style.display = "flex";
+
+                        } else {
+                            chatPanel.style.display = "none";
+
+                        }
+                    }
+
+                    // Привязываем функцию к событию нажатия на кнопку
+                    toggleChatButton.addEventListener("click", toggleChat);
+
+                // Модифицированный клиентский JavaScript
+                    document.addEventListener('DOMContentLoaded', () => {
+                        //const userList = document.getElementById('user-list');
+                        const chatMessages = document.querySelector('.chat-messages');
+                        const chatHeader = document.querySelector('.chat-header');
+
+                        // Функция для обновления чата при выборе пользователя
+                        function selectUser(userId) {
+                            // Очистите чат и отобразите имя выбранного пользователя
+                            chatHeader.textContent = `Чат с поддержкой`;
+                            chatMessages.innerHTML = `
+                            <% if (logined) { %>
+                            <% if (messages && messages.length) { %>
+                                 <% for (let i = 0; i < messages.length; i++) { %>
+                                    <% if (messages[i].text) { %>
+                                        <% if (messages[i].senderId == userid) { %>
+                                            <div class="outgoing-message">
+                                                <p><%= messages[i].text %></p>
+                                            </div>
+                                        <% } else {%>
+                                            <div class="incoming-message">
+                                                <p><%= messages[i].text %></p>
+                                            </div>
+                                        <%}%>
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                            <% } %>
+                            `;
+                            // Запросите предыдущие сообщения чата из сервера и отобразите их
+                            // Здесь вы можете использовать AJAX-запрос или socket.emit, в зависимости от вашей архитектуры.
+                        }
+
+                        // Обработчик клика на пользователя в списке
+                        //userList.addEventListener('click', (event) => {
+                        //    if (event.target.tagName === 'LI') {
+                        //        const selectedUserId = event.target.textContent;
+                        //        selectUser(selectedUserId);
+                        //    }
+                        //});
+
+                        // Обработчик кнопки отправки сообщения
+                        document.getElementById('send-button').addEventListener('click', () => {
+                            const messageInput = document.getElementById('message-input');
+                            const message = messageInput.value;
+                            const data =
+                            // Отправьте сообщение на сервер и сохраните его в базе данных
+                            // Учтите, что здесь вы должны указать идентификатор выбранного пользователя (selectedUserId).
+                            //socket.emit('chatMessage', { userId: selectedUserId, message });
+                            messageInput.value = '';
+                            /**/ // Замените на ID текущего пользователя
+                            //const chat = { userId1, userId2};
+
+                                  fetch('/message', {
+                                    method: 'POST',
+                                    headers: {"Content-Type":"application/json"},
+                                    body: JSON.stringify({
+                                      chatId: "651b065adb443a61a5720acf",
+                                      senderId: useridmessbtn,
+                                      text: message
+                                    }),
+                                  });
+                            chatMessages.innerHTML = chatMessages.innerHTML+`
+                            <div class ="outgoing-message">
+                                    <p>`+message+`</p>
+                                </div>`;
+                        });
+                        selectUser("651b065adb443a61a5720acf");
+                        // Ваши другие обработчики событий и код здесь
+                    });
+    </script>
+</div>
+</body>
+</html>

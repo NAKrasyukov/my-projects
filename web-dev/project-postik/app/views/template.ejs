@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 10px;
+            padding: 0;
+        }
+        body {
+            font-family: sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+            text-align: center;
+        }
+        p {
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        /* ссылки */
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #666;
+        }
+
+        /* кнопки */
+        button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form.newpost{
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form textarea{
+            resize: none;
+            display: block;
+            width: 100%;
+            height: 20%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        form.newpost textarea{
+            height: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* стиль для заголовка таблицы */
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* стиль для ячеек таблицы */
+        td {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        input[type='text'],
+        input[type='email'],
+        input[type='password'] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #f2f2f2;
+        }
+
+
+        .form_radio_group {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .form_radio_group-item {
+            display: inline-block;
+            float: left;
+            margin: -10px;
+        }
+        .form_radio_group input[type=radio] {
+            display: none;
+        }
+        .form_radio_group label {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0px 15px;
+            line-height: 34px;
+            border: 1px solid #999;
+            border-right: none;
+            user-select: none;
+        }
+
+        .form_radio_group .form_radio_group-item:first-child label {
+            border-radius: 6px 0 0 6px;
+        }
+        .form_radio_group .form_radio_group-item:last-child label {
+            border-radius: 0 6px 6px 0;
+            border-right: 1px solid #999;
+        }
+
+        /* Checked */
+        .form_radio_group input[type=radio]:checked + label {
+            background: #e0e8ff;
+        }
+
+        /* Hover */
+        .form_radio_group label:hover {
+            color: #666;
+        }
+
+        /* Disabled */
+        .form_radio_group input[type=radio]:disabled + label {
+            background: #efefef;
+            color: #666;
+        }
+        /* Стили для всплывающего окна */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+        }
+
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 60%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px 20px 20px 20px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .post-header h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .post-header p {
+            margin: 0;
+            font-size: 12px;
+            color: #999;
+            margin-left: auto;
+        }
+        .post-header button {
+            margin: 0;
+            font-size: 12px;
+            color: #999;
+            margin-left: auto;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .post-footer button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .post-footer button:hover {
+            text-decoration: underline;
+        }
+
+        .attachments {
+            margin-top: 10px;
+        }
+
+        .attachments img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            color: #000;
+            max-height: 80px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            position: sticky;
+        }
+
+        .top-bar img {
+            height: 50%;
+            margin-right: 10px;
+        }
+
+        .top-bar h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .top-bar .center {
+            text-align: center;
+            font-size: 24px;
+            flex: 1;
+        }
+
+        .top-bar .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            padding: 0;
+        }
+        .top-bar .dropdown button{
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            max-height: 90%;
+        }
+
+        .top-bar .dropdown img {
+            height: 50px;
+            vertical-align: middle;
+            margin: 0;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        .top-bar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            max-width: 94%;
+            margin-top: -10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .top-bar .dropdown-content button {
+            background-color: inherit;
+            border: none;
+            color: black;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .top-bar .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+
+        .top-bar .dropdown:hover .dropdown-content {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        form.drdn {
+            border: none;
+            color: black;
+            text-align: center;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 0;
+            margin: -10px;
+            max-height: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .scroll-container {
+
+            align-items: center;
+            margin-bottom: 10px;
+            min-height: 50px;
+            max-height: 200px; /* Высота контейнера */
+            overflow-y: scroll; /* Включаем вертикальную прокрутку */
+
+        }
+        .commentBlock{
+            height: 150px; /* Высота блока */
+            border-bottom: 1px solid #ccc; /* Граничная линия между блоками */
+            padding: 10px; /* Внутренний отступ блока */
+        }
+        .scroll-container::-webkit-scrollbar {
+            width: 10px; /* Ширина вертикального элемента прокрутки */
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #bfc5cc; /* Цвет ползунка */
+            border-radius: 5px; /* Скругление углов ползунка */
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+            border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+        }
+        /* Обновленные стили для страницы профиля */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .left-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .middle-column {
+            flex: 2;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+        }
+        .right-column {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column; /* Изменим направление контейнера */
+            /* Выравнивание элементов по центру */
+            margin-bottom: 20px;
+            position: relative; /* Добавлено для позиционирования */
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 10% 1% 1% 1%;
+            border: 4px solid #fff; /* Белая обводка */
+            z-index: 2; /* Отображение над обложкой */
+        }
+        .edit-profile-button {
+            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
+            color: #464545; /* Белый цвет текста */
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Прозрачная обводка */
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            border-radius: 5px; /* Закругленные углы */
+        }
+        .cover-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            position: absolute; /* Позиционирование обложки */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1; /* Задний план относительно аватара и имени */
+            border-radius: 5px;
+        }
+        .profile-details {
+            z-index: 2; /* Отображение над обложкой */
+            text-align: center; /* Центрирование текста */
+            margin: -7% 1% 1% 1%;
+        }
+        .profile-details h1 {
+            margin: 0;
+        }
+        .chat-container {
+            position: fixed;
+            bottom: 40px;
+            right: 0;
+            width: 500px; /* Уменьшьте ширину по своему усмотрению */
+            height: 400px; /* Уменьшьте высоту по своему усмотрению */
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-panel {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+        }
+
+        .user-list {
+            flex: 1;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            height: 320px;
+            overflow-y: auto;
+        }
+        .user-list::-webkit-scrollbar {
+            width: 10px; /* Ширина вертикального элемента прокрутки */
+        }
+
+        .user-list::-webkit-scrollbar-thumb {
+            background-color: #bfc5cc; /* Цвет ползунка */
+            border-radius: 5px; /* Скругление углов ползунка */
+        }
+
+        .user-list::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+            border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+        }
+
+        .user-list h2 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .user-list ul {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .user-list li {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .user-list li:last-child {
+            border-bottom: none;
+        }
+
+        .user-list li:hover {
+            background-color: #ddd;
+        }
+
+        .chat-content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+            max-height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages::-webkit-scrollbar {
+            width: 10px; /* Ширина вертикального элемента прокрутки */
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #bfc5cc; /* Цвет ползунка */
+            border-radius: 5px; /* Скругление углов ползунка */
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background-color: #f1f1f1; /* Цвет фона элемента прокрутки */
+            border-radius: 5px; /* Скругление углов фона элемента прокрутки */
+        }
+
+        .chat-input {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+        .incoming-message {
+            background-color: #e2e2e2;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px 10px;
+            max-width: 70%; /* Максимальная ширина входящего сообщения */
+            align-self: flex-start; /* Выравнивание в левой части окна чата */
+            word-wrap: break-word;
+            width: fit-content;
+        }
+
+        /* CSS для исходящих сообщений */
+        .outgoing-message {
+            background-color: #e2e2e2;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px 10px;
+            max-width: 70%; /* Максимальная ширина исходящего сообщения */
+            align-self: flex-end; /* Выравнивание в правой части окна чата */
+            word-wrap: break-word;
+            width: fit-content;
+        }
+        select{
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello <%= username %>, your role is <%= role %></h1>
+
+    <% if (role === 'SuperUser') { %>
+        <button>Okay</button>
+    <% } else if (role === 'Moderator') { %>
+        <table>
+            <% users.forEach(function(user) { %>
+                <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.role %></td>
+                </tr>
+            <% }); %>
+        </table>
+    <% } else if (role === 'Admin') { %>
+        <button type="button" onclick="addUser()" style="width: 100%">Добавить</button>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя пользователя</th>
+                <th>Пароль</th>
+                <th>Роль</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% users.forEach(function(user) { %>
+                <tr data-id="<%= user._id%>">
+                    <td ><input type="text" id="id<%= user._id%>" name="name" disabled value="<%= user._id%>" /></td>
+                    <td><input type="text" id="uname<%= user._id%>" name="name" disabled value="<%= user.username %>"/></td>
+                    <td><input type="text" id="pswd<%= user._id%>" name="name" disabled value="<%= user.password %>"/></td>
+                    <td>
+                        <select id="role<%= user._id%>" name="name" style="display: block;" disabled>
+                            <%if (user.role === "User") { %>
+                                <option value="User" selected>User</option>
+                            <%} else {%>
+                                <option value="User">User</option>
+                            <%}%>
+                            <%if (user.role === "SuperUser") { %>
+                                <option value="SuperUser" selected>SuperUser</option>
+                            <%} else {%>
+                                <option value="SuperUser">SuperUser</option>
+                            <%}%>
+                            <%if (user.role === "Moderator") { %>
+                                <option value="Moderator" selected>Moderator</option>
+                            <%} else{%>
+                                <option value="Moderator">Moderator</option>
+                            <%}%>
+                            <%if (user.role === "Admin") { %>
+                                <option value="Admin" selected>Admin</option>
+                            <%}else {%>
+                                <option value="Admin">Admin</option>
+                            <%}%>
+                        </select>
+                    </td>
+                    <td  style="width: fit-content ">
+                        <button type="button" onclick="editUser('<%= user._id%>') " >Изменить</button>
+                        <button type="button" onclick="saveEdit('<%= user._id%>')" style="display: none">Сохранить</button>
+                    </td>
+                    <td>
+                        <button type="button" onclick="deleteUser('<%= user._id%>')">Удалить</button>
+                        <button type="button" onclick="cancelEdit('<%= user._id%>')" style="display: none">Отмена</button>
+                    </td>
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+    <form action="/logout" method="post">
+        <div>
+            <input type="submit" value="Log out">
+        </div>
+    </form>
+
+
+    <script>
+        function editUser(id) {
+            const tr = document.querySelector(`tr[data-id="${id}"]`);
+
+            // Делаем поля "username", "password", "role" доступными для редактирования
+            const fields = tr.querySelectorAll("td:nth-child(2) input, td:nth-child(3) input, td:nth-child(4) select");
+            for (const field of fields) {
+                field.disabled = false;
+            }
+
+            // Делаем кнопки "изменить" и "удалить" невидимыми
+            tr.querySelector("td:nth-child(5) button").style.display = "none";
+            tr.querySelector("td:nth-child(6) button").style.display = "none";
+
+            // Делаем кнопки "сохранить" и "отмена" видимыми
+            tr.querySelector("td:nth-child(5) button:nth-child(2)").style.display = "inline-block";
+            tr.querySelector("td:nth-child(6) button:nth-child(2)").style.display = "inline-block";
+
+
+        }
+
+        function saveEdit(id) {
+            const tr = document.querySelector(`tr[data-id="${id}"]`);
+
+            fetch('/users', {
+                method: 'POST',
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify({
+                    _id: tr.querySelector("td:nth-child(1) input").value,
+                    username: tr.querySelector("td:nth-child(2) input").value,
+                    password: tr.querySelector("td:nth-child(3) input").value,
+                    role: tr.querySelector("td:nth-child(4) select").value,
+                }),
+            });
+
+            // Делаем поля "username", "password", "role" недоступными для редактирования
+            const fields = tr.querySelectorAll("td:nth-child(1) input, td:nth-child(2) input, td:nth-child(3) input, td:nth-child(4) input");
+            for (const field of fields) {
+                field.disabled = true;
+            }
+
+            // Делаем кнопки "изменить" и "удалить" видимыми
+            tr.querySelector("td:nth-child(5) button").style.display = "inline-block";
+            tr.querySelector("td:nth-child(6) button").style.display = "inline-block";
+
+            // Делаем кнопки "сохранить" и "отмена" невидимыми
+            tr.querySelector("td:nth-child(5) button:nth-child(2)").style.display = "none";
+            tr.querySelector("td:nth-child(6) button:nth-child(2)").style.display = "none";
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+
+        }
+
+        function cancelEdit(id) {
+            const tr = document.querySelector(`tr[data-id="${id}"]`);
+
+            // Делаем поля "username", "password", "role" недоступными для редактирования
+            const fields = tr.querySelectorAll("td:nth-child(1) input, td:nth-child(2) input, td:nth-child(3) input, td:nth-child(4) select");
+            for (const field of fields) {
+                field.disabled = true;
+            }
+
+            // Делаем кнопки "изменить" и "удалить" видимыми
+            tr.querySelector("td:nth-child(5) button").style.display = "inline-block";
+            tr.querySelector("td:nth-child(6) button").style.display = "inline-block";
+
+            // Делаем кнопки "сохранить" и "отмена" невидимыми
+            tr.querySelector("td:nth-child(5) button:nth-child(2)").style.display = "none";
+            tr.querySelector("td:nth-child(6) button:nth-child(2)").style.display = "none";
+        }
+        function deleteUser(id) {
+            const tr = document.querySelector(`tr[data-id="${id}"]`);
+            fetch(`/users/${id}`, { method: 'DELETE' })
+            tr.remove();
+        }
+        function addUser() {
+
+            const idField = document.createElement('input');
+            idField.type = 'text';
+            idField.id = 'id';
+            idField.name = 'name';
+            idField.disabled = true;
+            idField.value = '111a111111a1111111a11111';
+
+            const unameField = document.createElement('input');
+            unameField.type = 'text';
+            unameField.id = 'uname';
+            unameField.name = 'name';
+            unameField.disabled = false;
+            unameField.value = '';
+
+            const pswdField = document.createElement('input');
+            pswdField.type = 'text';
+            pswdField.id = 'pswd';
+            pswdField.name = 'name';
+            pswdField.disabled = false;
+            pswdField.value = '';
+
+            const roleField = document.createElement('select');
+            roleField.id = 'role';
+            roleField.name = 'name';
+            roleField.disabled = false;
+            roleField.style="display: block;";
+            roleField.value="User";
+
+            const roleFieldOption1 = document.createElement('option');
+            roleFieldOption1.value = "User";
+            roleFieldOption1.textContent = "User";
+
+            const roleFieldOption2 = document.createElement('option');
+            roleFieldOption2.value = "SuperUser";
+            roleFieldOption2.textContent = "SuperUser";
+
+            const roleFieldOption3 = document.createElement('option');
+            roleFieldOption3.value = "Moderator";
+            roleFieldOption3.textContent = "Moderator";
+
+            const roleFieldOption4 = document.createElement('option');
+            roleFieldOption4.value = "Admin";
+            roleFieldOption4.textContent = "Admin";
+
+            roleField.appendChild(roleFieldOption1);
+            roleField.appendChild(roleFieldOption2);
+            roleField.appendChild(roleFieldOption3);
+            roleField.appendChild(roleFieldOption4);
+
+            const editButton = document.createElement('button');
+            editButton.type = 'button';
+            editButton.onclick = () => editUser('111a111111a1111111a11111');
+            editButton.textContent = 'Изменить';
+            editButton.style.display = "none";
+
+
+            const deleteButton = document.createElement('button');
+            deleteButton.type = 'button';
+            deleteButton.onclick = () => deleteUser('111a111111a1111111a11111');
+            deleteButton.textContent = 'Удалить';
+            deleteButton.style.display = "none";
+
+
+            const saveButton = document.createElement('button');
+            saveButton.type = 'button';
+            saveButton.onclick = () => saveEdit('111a111111a1111111a11111');
+            saveButton.textContent = 'Сохранить';
+            saveButton.style.display = "inline-block";
+
+            const cnlButton = document.createElement('button');
+            cnlButton.type = 'button';
+            cnlButton.onclick = () => tr.remove();
+            cnlButton.textContent = 'Отменить';
+            cnlButton.style.display = "inline-block";
+
+            const newRow = document.createElement(`tr`);
+            newRow.setAttribute('data-id', '111a111111a1111111a11111');
+            const newColID = document.createElement(`td`);
+            newColID.appendChild(idField);
+            const newColuname = document.createElement(`td`);
+            newColuname.appendChild(unameField);
+            const newColpswd = document.createElement(`td`);
+            newColpswd.appendChild(pswdField);
+            const newColrole = document.createElement(`td`);
+            newColrole.appendChild(roleField);
+            const newColed = document.createElement(`td`);
+            newColed.appendChild(editButton);
+            newColed.appendChild(saveButton);
+
+
+            const newColdel = document.createElement(`td`);
+            newColdel.appendChild(deleteButton);
+            newColdel.appendChild(cnlButton);
+
+
+            newRow.appendChild(newColID)
+            newRow.appendChild(newColuname)
+            newRow.appendChild(newColpswd)
+            newRow.appendChild(newColrole)
+            newRow.appendChild(newColed)
+            newRow.appendChild(newColdel)
+
+
+            document.querySelector('tbody').appendChild(newRow);
+
+            const tr = document.querySelector(`tr[data-id="111a111111a1111111a11111"]`);
+
+        }
+    </script>
+</body>
+</html>
