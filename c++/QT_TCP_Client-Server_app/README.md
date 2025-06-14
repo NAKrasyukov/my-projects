@@ -40,18 +40,30 @@
 ## 🗃️ Структура проекта
 
   TCP-Server/
+  
   │
+  
   ├── clientdata.h # Структура данных ClientData
+  
   ├── qttcpserver.h/.cpp # Логика сервера
+  
   ├── tcpclientwidget.h/.cpp # Графический интерфейс клиента
+  
   ├── main.cpp # Точка входа
+  
   ├── project.pro # Файл проекта Qt (.pro)
+  
 
   TCP-Client/
+  
   ├── main.cpp
+  
   ├── clientwindow.h / .cpp — GUI и логика клиента
+  
   ├── clientconnection.h / .cpp — сетевой код
+  
   ├── tcpclient.pro — проект qmake
+  
 
 ---
 
@@ -72,6 +84,8 @@
 ## 👨‍💻 Автор
 
 Nikolai Krasyukov
+
+https://github.com/NAKrasyukov
 
 ---
 
