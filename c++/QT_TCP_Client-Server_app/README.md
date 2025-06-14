@@ -45,9 +45,9 @@
   
   ├── clientdata.h # Структура данных ClientData
   
-  ├── qttcpserver.h/.cpp # Логика сервера
-  
-  ├── tcpclientwidget.h/.cpp # Графический интерфейс клиента
+  ├── qttcpserver.h # Логика сервера
+
+  ├── tcpserver.cpp # Логика сервера
   
   ├── main.cpp # Точка входа
   
@@ -59,13 +59,13 @@
   
   │
   
-  ├── main.cpp
+  ├── main.cpp # Точка входа
   
-  ├── clientwindow.h / .cpp — GUI и логика клиента
+  ├── clientwindow.h / .cpp # GUI и логика клиента
   
-  ├── clientconnection.h / .cpp — сетевой код
+  ├── clientconnection.h / .cpp # сетевой код
   
-  ├── tcpclient.pro — проект qmake
+  ├── tcpclient.pro # Файл проекта Qt (.pro)
   
 
 ---
