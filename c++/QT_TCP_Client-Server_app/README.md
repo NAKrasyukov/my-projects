@@ -33,7 +33,6 @@
 - **Qt 6.9.1**
 - **QTcpServer / QTcpSocket**
 - **QDataStream** — сериализация структуры
-- **VSCode** (настройка сборки вручную через `qmake` и `mingw32-make`)
 
 ---
 
