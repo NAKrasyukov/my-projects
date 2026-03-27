@@ -1,3 +1,4 @@
+
 SELECT 
     OBJECT_SCHEMA_NAME(ips.object_id) AS schema_name,
     OBJECT_NAME(ips.object_id)        AS table_name,
@@ -20,8 +21,10 @@ JOIN sys.indexes i
 WHERE
     ips.index_id > 0        -- исключить heap
     AND ips.page_count > 1000 --and ips.page_count < 1000
+    --AND OBJECT_NAME(ips.object_id) = '_AccumRgT22322'
+    --and i.name = '_InfoRg39244_3'
 ORDER BY
     ips.avg_fragmentation_in_percent DESC;-- page_count avg_fragmentation_in_percent
 
 
-    SELECT cpu_count, hyperthread_ratio, numa_node_count FROM sys.dm_os_sys_info
+--    SELECT cpu_count, hyperthread_ratio, numa_node_count FROM sys.dm_os_sys_info

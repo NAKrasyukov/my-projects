@@ -1,9 +1,29 @@
 select log_reuse_wait_desc,* from sys.databases
 
-USE master;
-GO
-ALTER DATABASE [ope_025] SET PARTNER OFF;
-GO
+DBCC OPENTRAN('ope_095'); -- kill 77
+
+SELECT
+    at.transaction_id,
+    at.name,
+    at.transaction_begin_time,
+    DATEDIFF(MINUTE, at.transaction_begin_time, GETDATE()) AS minutes_running,
+    s.session_id,
+    s.login_name,
+    s.host_name,
+    s.program_name,
+    s.status,
+    dt.database_id,
+    DB_NAME(dt.database_id) AS database_name
+FROM sys.dm_tran_active_transactions at
+JOIN sys.dm_tran_session_transactions st
+    ON at.transaction_id = st.transaction_id
+JOIN sys.dm_exec_sessions s
+    ON st.session_id = s.session_id
+JOIN sys.dm_tran_database_transactions dt
+    ON at.transaction_id = dt.transaction_id
+WHERE dt.database_id = DB_ID('ope_118')
+ORDER BY at.transaction_begin_time;
+
 
 SELECT local_net_address, local_tcp_port
 FROM sys.dm_exec_connections

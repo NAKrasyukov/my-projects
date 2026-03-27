@@ -9,7 +9,7 @@
     r.status,
     r.command,
 
-    -- время старта запроса
+    -- время старта запроса  sp_Who2  SP_SPACEUSED
     r.start_time                                   AS query_start_time,
 
     -- сколько выполняется (hh:mm:ss)
@@ -71,4 +71,10 @@ ORDER BY
     r.blocking_session_id DESC,
     r.total_elapsed_time DESC;
 
-    --kill 75
+    --kill 61
+   -- DBCC UPDATEUSAGE (TDJournal, Data)
+
+
+   -- sp_who2
+
+

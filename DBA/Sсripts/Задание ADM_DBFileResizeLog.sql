@@ -12,7 +12,7 @@ EXEC  msdb.dbo.sp_add_job @job_name=N'ADM_DBFileResizeLog',
 		@owner_login_name=N'TECHNODOM\iknae', @job_id = @jobId OUTPUT
 select @jobId
 GO
-EXEC msdb.dbo.sp_add_jobserver @job_name=N'ADM_DBFileResizeLog', @server_name = N'ITSRV949'
+EXEC msdb.dbo.sp_add_jobserver @job_name=N'ADM_DBFileResizeLog', @server_name = @@SERVERNAME
 GO
 USE [msdb]
 GO
@@ -96,7 +96,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'ADM_DBFileResizeLog',
 		@delete_level=0, 
 		@description=N'Задание для записи информации из ринг буффера Extended Event [Track_File_Autogrow] в таблицу.', 
 		@category_name=N'[Uncategorized (Local)]', 
-		@owner_login_name=N'TECHNODOM\iknae', 
+		@owner_login_name=N'sa', 
 		@notify_email_operator_name=N'', 
 		@notify_page_operator_name=N''
 GO
