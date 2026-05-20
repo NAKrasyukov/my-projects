@@ -28,3 +28,32 @@ ORDER BY
 
 
 --    SELECT cpu_count, hyperthread_ratio, numa_node_count FROM sys.dm_os_sys_info
+
+SELECT
+    OBJECT_NAME(object_id) AS table_name,
+    index_id,
+    avg_fragmentation_in_percent,
+    avg_page_space_used_in_percent,
+    fragment_count,
+    page_count
+FROM sys.dm_db_index_physical_stats
+(
+    DB_ID(),
+    OBJECT_ID('dbo._AccumRgT22322'),
+    NULL,
+    NULL,
+    'DETAILED'
+);
+
+SELECT
+    OBJECT_NAME(object_id) AS table_name,
+    leaf_allocation_count,
+    nonleaf_allocation_count,
+    leaf_page_merge_count
+FROM sys.dm_db_index_operational_stats
+(
+    DB_ID(),
+    OBJECT_ID('dbo._AccumRgT39253'),
+    NULL,
+    NULL
+);
