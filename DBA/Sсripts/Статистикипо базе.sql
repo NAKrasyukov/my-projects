@@ -9,3 +9,4 @@ FROM sys.stats s
 CROSS APPLY sys.dm_db_stats_properties(s.object_id, s.stats_id) sp
 JOIN sys.tables t ON s.object_id = t.object_id
 ORDER BY sp.modification_counter DESC; -- Сначала самые устаревшие
+
