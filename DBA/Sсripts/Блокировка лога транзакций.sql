@@ -1,6 +1,6 @@
 select log_reuse_wait_desc,* from sys.databases
 
-DBCC OPENTRAN('ope_095'); -- kill 77
+DBCC OPENTRAN('ope_008'); -- kill 91
 
 SELECT
     at.transaction_id,

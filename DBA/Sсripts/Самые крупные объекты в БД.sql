@@ -24,3 +24,41 @@ GROUP BY
     t.name, i.object_id, i.index_id, i.name 
 ORDER BY 
     TotalSpaceMB desc
+
+
+
+    --EXEC sp_MSforeachtable 'EXEC sp_spaceused "?"';
+
+
+    SELECT
+    r.session_id,
+    r.command,
+    r.status,
+    r.percent_complete,
+    r.start_time,
+    r.cpu_time,
+    r.total_elapsed_time / 1000 / 60 AS elapsed_minutes,
+    r.estimated_completion_time / 1000 / 60 AS eta_minutes,
+    DB_NAME(r.database_id) AS database_name,
+    t.text
+FROM sys.dm_exec_requests r
+CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) t
+WHERE r.command LIKE '%INDEX%';
+
+
+
+
+ALTER INDEX [_AccumRgT22322_1] ON [dbo].[_AccumRgT22322] RESUME;
+ALTER INDEX [_AccumRgT22322_1] ON [dbo].[_AccumRgT22322] PAUSE;
+
+
+
+
+SELECT
+    OBJECT_NAME(object_id) AS table_name,
+    name AS index_name,
+    state_desc,
+    percent_complete,
+    start_time,
+    last_pause_time
+FROM sys.index_resumable_operations;
