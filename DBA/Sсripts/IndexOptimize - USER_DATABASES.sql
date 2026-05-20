@@ -1,7 +1,7 @@
 USE [msdb]
 GO
 
-/*** Object:  Job [IndexOptimize - USER_DATABASES]    Script Date: 10.02.2026 9:23:39 ***/-- ope_142
+/*** Object:  Job [IndexOptimize - USER_DATABASES]    Script Date: 10.02.2026 9:23:39 ***/-- OPE_003
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
@@ -118,7 +118,7 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'IndexOpt
 --@TimeLimit = 12000,
 @UpdateStatistics = NULL,
 @LogToTable = ''Y'',
-@Indexes = ''ALL_INDEXES, -ope_142.dbo._AccumRgT22322,-ope_142.dbo._AccumRgT21305''', 
+@Indexes = ''ALL_INDEXES, -OPE_003.dbo._AccumRgT22322,-OPE_003.dbo._AccumRgT21305''', 
 		@database_name=N'master', 
 		@output_file_name=N'$(ESCAPE_SQUOTE(SQLLOGDIR))\$(ESCAPE_SQUOTE(JOBNAME))_$(ESCAPE_SQUOTE(STEPID))_$(ESCAPE_SQUOTE(DATE))_$(ESCAPE_SQUOTE(TIME)).txt', 
 		@flags=0

@@ -105,7 +105,7 @@ GO
 EXEC sp_MSforeachdb '
 USE [?];
 -- Check if the database is a user database and not one of the system dbs
-IF DB_NAME() NOT IN (''master'', ''model'', ''msdb'', ''tempdb'')
+IF DB_NAME() NOT IN (''master'', ''model'')
 BEGIN
 
     -- Check if the user already exists in the current database TECHNODOM\SQL-1CAdmin
@@ -117,7 +117,7 @@ BEGIN
     END
     
     -- Check if the user is already a member of the db_owner role TECHNODOM\SQL-1CAdmin
-    IF (IS_SRVROLEMEMBER(''sysadmin'', LOGINPROPERTY(N''TECHNODOM\SQL-1CAdmin'', ''Sid'')) IS NULL) -- Only add if not sysadmin at server level
+    IF (IS_SRVROLEMEMBER(''sysadmin'', N''TECHNODOM\SQL-1CAdmin'') IS NULL) -- Only add if not sysadmin at server level
     BEGIN
         IF (IS_MEMBER(''db_owner'') <> 1)
         BEGIN
@@ -236,7 +236,7 @@ GO
 EXEC sp_MSforeachdb '
 USE [?];
 -- Check if the database is a user database and not one of the system dbs
-IF DB_NAME() NOT IN (''master'', ''model'', ''msdb'', ''tempdb'')
+IF DB_NAME() NOT IN (''master'', ''model'')
 BEGIN
 
     -- Check if the user already exists in the current database TECHNODOM\1c-service
@@ -248,7 +248,7 @@ BEGIN
     END
     
     -- Check if the user is already a member of the db_owner role TECHNODOM\1c-service
-    IF (IS_SRVROLEMEMBER(''sysadmin'', LOGINPROPERTY(N''TECHNODOM\1c-service'', ''Sid'')) IS NULL) -- Only add if not sysadmin at server level
+    IF (IS_SRVROLEMEMBER(''sysadmin'', N''TECHNODOM\1c-service'') IS NULL) -- Only add if not sysadmin at server level
     BEGIN
         IF (IS_MEMBER(''db_owner'') <> 1)
         BEGIN
@@ -368,7 +368,7 @@ GO
 EXEC sp_MSforeachdb '
 USE [?];
 -- Check if the database is a user database and not one of the system dbs
-IF DB_NAME() NOT IN (''master'', ''model'', ''msdb'', ''tempdb'')
+IF DB_NAME() NOT IN (''master'', ''model'')
 BEGIN
 
     -- Check if the user already exists in the current database TECHNODOM\SQL-DEV-TEAM
@@ -380,7 +380,7 @@ BEGIN
     END
     
     -- Check if the user is already a member of the db_owner role TECHNODOM\SQL-DEV-TEAM
-    IF (IS_SRVROLEMEMBER(''sysadmin'', LOGINPROPERTY(N''TECHNODOM\SQL-DEV-TEAM'', ''Sid'')) IS NULL) -- Only add if not sysadmin at server level
+    IF (IS_SRVROLEMEMBER(''sysadmin'', N''TECHNODOM\SQL-DEV-TEAM'') IS NULL) -- Only add if not sysadmin at server level
     BEGIN
         IF (IS_MEMBER(''db_owner'') <> 1)
         BEGIN
@@ -393,7 +393,7 @@ END
 ';
 GO
 
-
+/*
 -- AuditUser OSA-1691
 
 USE [master]
