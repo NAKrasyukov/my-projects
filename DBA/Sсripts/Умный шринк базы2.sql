@@ -1,14 +1,17 @@
 
 DECLARE @SQL NVARCHAR(MAX) = N'';
 
-SELECT @SQL = @SQL + N'
-USE ' + QUOTENAME(name) + N';
-
+SELECT @SQL = @SQL+N'
 DECLARE 
     @FileName sysname,
     @TargetSize INT,
     @Factor FLOAT = .99,
     @MinSize INT;
+DECLARE @msg VARCHAR(200);
+'
+
+SELECT @SQL = @SQL + N'
+USE ' + QUOTENAME(name) + N';
 
 -- Обрабатываем каждый DATA-файл базы
 DECLARE FileCursor CURSOR LOCAL FAST_FORWARD FOR
@@ -45,7 +48,7 @@ BEGIN
 
         DBCC SHRINKFILE(@FileName, @TargetSize);
 
-        DECLARE @msg VARCHAR(200) = CONCAT(''Shrink file completed. Target Size: '', 
+        SET @msg  = CONCAT(''Shrink file completed. Target Size: '', 
              @TargetSize, '' MB. Timestamp: '', CURRENT_TIMESTAMP);
         RAISERROR(@msg, 1, 1) WITH NOWAIT;
 
